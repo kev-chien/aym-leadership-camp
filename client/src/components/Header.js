@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
-import ElementLogo from '../images/element-logo.png'
+import ElementLogo from "../images/element-logo.png";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -25,6 +25,6 @@ const Header = () => (
     <StyledImage src={ElementLogo} />
     <StyledHeader>MAY CHALLENGE</StyledHeader>
   </StyledContainer>
-)
+);
 
-export default Header
+export default Header;

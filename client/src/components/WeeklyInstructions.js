@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import theme from "./theme";
+
 const Container = styled.div`
   margin-top: 42px;
 
@@ -13,13 +15,14 @@ const Container = styled.div`
     font-weight: 700;
     margin: 0 0 10px 0;
     text-transform: uppercase;
+    color: ${theme.colors.burgundy};
   }
 
   h3 {
     font-size: 24px;
     font-weight: 500;
     margin: 0;
-    color: #A17379;
+    color: ${theme.colors.pink};
   }
 `;
 
