@@ -8,4 +8,8 @@ export default {
     background: "#E5E5E5",
     white: "#FFF",
   },
+  breakpoints: {
+    sm: 400,
+    md: 725
+  }
 };

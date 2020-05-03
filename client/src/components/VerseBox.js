@@ -33,7 +33,7 @@ const ImageFilter = styled.div`
   height: 100%;
   width: 100%;
   background-color: ${theme.colors.darkGreen};
-  opacity: 0.75;
+  opacity: 0.8;
   z-index: 2;
 `;
 

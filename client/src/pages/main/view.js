@@ -17,12 +17,14 @@ const PageContainer = styled.div`
 `;
 
 const FormContainer = styled.div`
-margin-top: 30px;
+  margin-top: 30px;
+  padding: 0 30px;
   display: flex;
   justify-content: center;
 `;
 
-const MainPageView = () => {
+const MainPageView = ({ breakpoint }) => {
+  console.log(breakpoint);
   return (
     <PageContainer>
       <Header />

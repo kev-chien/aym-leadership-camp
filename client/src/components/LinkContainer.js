@@ -5,6 +5,7 @@ import theme from "./theme";
 
 const Container = styled.div`
   margin-top: 30px;
+  padding: 0 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,6 +17,10 @@ const Button = styled.div`
   background: ${theme.colors.fadedPink};
   color: ${theme.colors.white};
   border-radius: 30px;
+
+  &&:last-of-type {
+    margin-right: 0px;
+  }
 
   &&.ghost {
     background: ${theme.colors.background};
