@@ -39,7 +39,7 @@ const ImageFilter = styled.div`
 
 const VerseText = styled.h3`
   color: ${theme.colors.white};
-  maxwidth: 240px;
+  max-width: 240px;
   margin: 28px 34px;
   text-transform: uppercase;
   font-size: 25px;
