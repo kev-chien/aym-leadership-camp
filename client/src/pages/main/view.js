@@ -22,11 +22,12 @@ margin-top: 30px;
   justify-content: center;
 `;
 
-const StudentIndexView = () => {
+const MainPageView = () => {
   return (
     <PageContainer>
       <Header />
       <WeeklyInstructions />
+      <LinkContainer />
       <FormContainer>
         <VerseBox style={{ marginRight: "30px" }} />
         {/* replace the lower one with form when ready */}
@@ -36,4 +37,4 @@ const StudentIndexView = () => {
   );
 };
 
-export default StudentIndexView;
+export default MainPageView;
