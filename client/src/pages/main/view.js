@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import {Header} from '../../components'
+import {Header, WeeklyInstructions, LinkContainer, VerseBox, PrayerForm, AccomplishmentTable} from '../../components'
 
 const PageContainer = styled.div`
   max-width: 950px;
@@ -13,6 +13,7 @@ const StudentIndexView = () => {
   return (
     <PageContainer>
       <Header />
+      <WeeklyInstructions />
     </PageContainer>
   );
 };
