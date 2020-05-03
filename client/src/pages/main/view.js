@@ -1,6 +1,6 @@
 import React from "react";
 
-const StudentIndexView = ({}) => {
+const StudentIndexView = () => {
   return <div>Hello World</div>;
 };
 
