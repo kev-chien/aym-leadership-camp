@@ -1,4 +1,4 @@
 # senior-website
-Virtual Yearbook for C/O 2020
+Website to track Element May Challenge
 
-Live site - https://virtual-yearbook.herokuapp.com/
+Live site - https://may-challenge.herokuapp.com/
