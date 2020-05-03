@@ -16,12 +16,14 @@ const StyledImage = styled.img`
 
 const StyledHeader = styled.h2`
   letter-spacing: 2%;
+  font-weight: 700;
+  font-size: 30px;
 `;
 
 const Header = () => (
   <StyledContainer>
     <StyledImage src={ElementLogo} />
-    <h2>MAY CHALLENGE</h2>
+    <StyledHeader>MAY CHALLENGE</StyledHeader>
   </StyledContainer>
 )
 
