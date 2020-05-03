@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import theme from "./theme";
+
 const Container = styled.div`
   margin-top: 30px;
   display: flex;
@@ -11,13 +13,13 @@ const Container = styled.div`
 const Button = styled.div`
   padding: 10px 20px;
   margin-right: 20px;
-  background: #bba6a8;
-  color: #fff;
+  background: ${theme.colors.fadedPink};
+  color: ${theme.colors.white};
   border-radius: 30px;
 
   &&.ghost {
-    background: #fff;
-    color: #544244;
+    background: ${theme.colors.background};
+    color: ${theme.colors.burgundy};
   }
 `;
 
