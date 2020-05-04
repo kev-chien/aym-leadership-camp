@@ -34,7 +34,7 @@ const StyledHeader = styled.h2`
   margin: 0;
   letter-spacing: 2%;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 16px;
   color: ${theme.colors.fadedPink};
 `;
 

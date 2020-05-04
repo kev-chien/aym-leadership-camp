@@ -5,17 +5,52 @@ import VerseBackground from "../images/verse-background.jpeg";
 
 import theme from "./theme";
 
+import { useBreakpoint } from "../providers/BreakpointProvider";
+
 const Container = styled.div`
+  margin-top: 30px;
   width: 388px;
   height: 392px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 
   & div {
     border-radius: 10px;
   }
+
+  ${(props) =>
+    props.breakpoint === "md" &&
+    `
+    .verse {
+      font-size: 20px;
+      max-width: 180px;
+    }
+  `}
+
+  ${(props) =>
+    props.breakpoint === "sm" &&
+    `
+    width: 100%;
+    height: auto;
+
+    .image {
+      background: ${theme.colors.background};
+    }
+
+    .verse {
+      font-size: 20px;
+      color: ${theme.colors.darkGreen};
+      text-align: center;
+    }
+
+    .verse.reference {
+      font-weight: 500;
+      margin-top: 0;
+    }
+  `}
 `;
 
 const ImageBackground = styled.div`
@@ -33,7 +68,7 @@ const ImageFilter = styled.div`
   height: 100%;
   width: 100%;
   background-color: ${theme.colors.darkGreen};
-  opacity: 0.75;
+  opacity: 0.8;
   z-index: 2;
 `;
 
@@ -47,16 +82,19 @@ const VerseText = styled.h3`
   z-index: 3;
 `;
 
-const VerseBox = ({ style }) => (
-  <Container style={style}>
-    <ImageBackground />
-    <ImageFilter />
-    <VerseText>
-      Therefore be imitators of God, as beloved children. And walk in love, as
-      Christ loved us
-    </VerseText>
-    <VerseText>Eph 5:1-2</VerseText>
-  </Container>
-);
+const VerseBox = ({ style }) => {
+  const { breakpoint } = useBreakpoint();
+  return (
+    <Container style={style} breakpoint={breakpoint}>
+      <ImageBackground className="image" />
+      <ImageFilter className="image" />
+      <VerseText className="verse">
+        Therefore be imitators of God, as beloved children. And walk in love, as
+        Christ loved us
+      </VerseText>
+      <VerseText className="verse reference">Eph 5:1-2</VerseText>
+    </Container>
+  );
+};
 
 export default VerseBox;
