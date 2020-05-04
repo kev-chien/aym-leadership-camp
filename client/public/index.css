@@ -1,6 +1,9 @@
 body {
   margin: 0;
-  background: #E5E5E5;
+  background: #e5e5e5;
+}
+
+* {
   box-sizing: border-box;
   font-family: "Manrope", sans-serif;
   -webkit-font-smoothing: antialiased;
