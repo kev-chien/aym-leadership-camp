@@ -1,8 +1,8 @@
 import React from "react";
 import { Router, Switch, Route } from "react-router-dom";
-import history from './history'
+import history from "./history";
 
-import MainPage from './pages/main'
+import MainPage from "./pages/main";
 
 const App = () => {
   return (
