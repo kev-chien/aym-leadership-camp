@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import axios from "axios";
 
 import theme from "../theme";
 
@@ -75,7 +74,7 @@ const StyledContainer = styled.div`
   `}
 `;
 
-const PrayerForm = () => {
+const PrayerForm = ({ submitAccomplishment }) => {
   const { breakpoint } = useBreakpoint();
 
   const defaultState = { name: "", note: "" };
@@ -87,8 +86,7 @@ const PrayerForm = () => {
     }
 
     try {
-      await axios.post("/api/goals", inputs);
-      console.log("INPUTS", inputs);
+      await submitAccomplishment(inputs);
       setInputs(defaultState);
     } catch (error) {
       console.log("failed to submit", error);

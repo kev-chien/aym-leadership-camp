@@ -22,7 +22,7 @@ const PageContainer = styled.div`
   align-items: center;
 `;
 
-const MainPageView = () => {
+const MainPageView = ({ accomplishments, submitAccomplishment }) => {
   const { breakpoint } = useBreakpoint();
 
   return (
@@ -32,7 +32,8 @@ const MainPageView = () => {
           <Header />
           <WeeklyInstructions />
           <LinkContainer />
-          <FormContainer />
+          <FormContainer submitAccomplishment={submitAccomplishment} />
+          <AccomplishmentTable accomplishments={accomplishments} />
         </>
       )}
       {breakpoint === "sm" && (
@@ -40,7 +41,7 @@ const MainPageView = () => {
           <Header />
           <WeeklyInstructions />
           <VerseBox />
-          <PrayerForm />
+          <PrayerForm submitAccomplishment={submitAccomplishment} />
           <LinkContainer />
         </>
       )}

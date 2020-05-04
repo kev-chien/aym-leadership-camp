@@ -12,10 +12,10 @@ const StyledDiv = styled.div`
   }
 `;
 
-const FormContainer = () => (
+const FormContainer = ({ submitAccomplishment }) => (
   <StyledDiv>
     <VerseBox />
-    <PrayerForm />
+    <PrayerForm submitAccomplishment={submitAccomplishment} />
   </StyledDiv>
 );
 export default FormContainer;
