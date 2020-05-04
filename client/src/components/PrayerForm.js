@@ -15,69 +15,69 @@ const StyledContainer = styled.div`
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     order-radius: 10px;
 
-    h3 {
+    form {
         position: absolute;
-        width: 329px;
-        height: 26px;
-        left: 764px;
-        top: 341px;
-        font-family: Manrope;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 26px;
-        text-transform: uppercase;
-        color: #544244;
-    }
 
-    input[ type=text ] {
-        position: absolute;
-        width: 328px;
-        height: 41px;
-        left: 765px;
-        top: 377px;
-        background: #FFFFFF;
-        border: 1px solid #E5E5E5;
-        box-sizing: border - box;
-        border-radius: 5px;
-        ::placeholder {
+        h3 {
+            width: 329px;
+            height: 26px;
+            left: 764px;
+            top: 341px;
             font-family: Manrope;
             font-style: normal;
-            font-weight: normal;
-            font-size: 16px;
-            line-height: 21px;
-            color: #C1C1C1;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 26px;
+            text-transform: uppercase;
+            color: #544244;
         }
-    }
 
-    input[ type=textarea ] {
-        position: absolute;
-        width: 328px;
-        height: 185px;
-        left: 765px;
-        top: 428px;
-        background: #FFFFFF;
-        border: 1px solid #E5E5E5;
-        box-sizing: border - box;
-        border-radius: 5px;
-        ::placeholder {
-            font-family: Manrope;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 16px;
-            line-height: 21px;
-            color: #C1C1C1;
+        input[ type=text ] {
+            width: 328px;
+            height: 41px;
+            left: 765px;
+            top: 377px;
+            background: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            box-sizing: border - box;
+            border-radius: 5px;
+            ::placeholder {
+                font-family: Manrope;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 21px;
+                color: #C1C1C1;
+            }
         }
-    }
 
-    button {
-        position: absolute;
-        width: 28px;
-        height: 39px;
-        left: 765px;
-        top: 633px;
-        background: #578982;
-        border-radius: 5px;
+        input[ type=textarea ] {
+            width: 328px;
+            height: 185px;
+            left: 765px;
+            top: 428px;
+            background: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            box-sizing: border - box;
+            border-radius: 5px;
+            ::placeholder {
+                font-family: Manrope;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 21px;
+                color: #C1C1C1;
+            }
+        }   
+
+        button {
+            width: 28px;
+            height: 39px;
+            left: 765px;
+            top: 633px;
+            background: #578982;
+            border-radius: 5px;
+        }
     }
 `;
 
