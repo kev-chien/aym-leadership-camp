@@ -15,10 +15,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
 
   & div {
     border-radius: 10px;
+  }
+
+  .verse.reference {
+    align-self: flex-end;
   }
 
   ${(props) =>
@@ -35,6 +38,8 @@ const Container = styled.div`
     `
     width: 100%;
     height: auto;
+    align-items: center;
+
 
     .image {
       background: ${theme.colors.background};
@@ -49,6 +54,7 @@ const Container = styled.div`
     .verse.reference {
       font-weight: 500;
       margin-top: 0;
+      align-self: center;
     }
   `}
 `;
