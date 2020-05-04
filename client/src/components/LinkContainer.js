@@ -17,7 +17,7 @@ const Container = styled.div`
       justify-content: space-between;
 
       && .btn {
-        width: 40%;
+        width: 47.5%;
         margin: 10px 0;
         text-align: center;
       }
@@ -27,11 +27,13 @@ const Container = styled.div`
     props.breakpoint === "sm" &&
     `
       justify-content: center;
+      text-align: center;
 
       && .btn {
         width: 100%;
         margin: 10px 0;
         border-radius: 5px;
+        text-transform: uppercase;
       }
     `}
 `;

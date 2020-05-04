@@ -12,6 +12,10 @@ module.exports = (app) => {
   //create new goal
   app.post("/api/goals", async (req, res) => {
     const { note, name } = req.body;
+    console.log(
+      'BODY', req.body
+    );
+
     const newGoal = await Goal.create({
       name,
       note,

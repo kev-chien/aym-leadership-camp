@@ -17,7 +17,7 @@ require("./models/Goal");
 // Middleware start
 const app = express();
 const db = mongoose.connection;
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(logger("dev"));
 app.use(express.static(path.join(__dirname, "public")));

@@ -12,15 +12,10 @@ const StyledDiv = styled.div`
   }
 `;
 
-const FormContainer = () => {
-
-
-  return (
-    <StyledDiv>
-      <VerseBox />
-      <PrayerForm />
-    </StyledDiv>
-  );
-};
-
+const FormContainer = () => (
+  <StyledDiv>
+    <VerseBox />
+    <PrayerForm />
+  </StyledDiv>
+);
 export default FormContainer;

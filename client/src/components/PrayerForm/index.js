@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import usePrayerForm from "../CustomHook";
+import axios from "axios";
 
-import theme from "./theme";
+import theme from "../theme";
+
+import { useBreakpoint } from "../../providers/BreakpointProvider";
 
 const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   margin-top: 30px;
   padding: 30px;
   width: 388px;
@@ -19,9 +23,14 @@ const StyledContainer = styled.div`
     font-weight: 700;
     text-transform: uppercase;
     color: ${theme.colors.burgundy};
+    text-align: center;
   }
 
   form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
     input,
     textarea {
       margin-top: 10px;
@@ -41,7 +50,7 @@ const StyledContainer = styled.div`
     }
 
     textarea {
-      height: 185px;
+      flex: 1;
       margin-bottom: 20px;
       resize: none;
     }
@@ -56,20 +65,46 @@ const StyledContainer = styled.div`
       border-radius: 5px;
     }
   }
+
+  ${(props) =>
+    props.breakpoint === "sm" &&
+    `
+    margin: 0 auto;
+    box-shadow: none;
+    background: ${theme.colors.background};
+  `}
 `;
 
 const PrayerForm = () => {
-  //need to figure out this will communicate with server
-  const submit = () => {
-    alert(`Prayer submitted!
-               Name: ${inputs.name}
-               Accomplishment: ${inputs.accomplishment} `);
+  const { breakpoint } = useBreakpoint();
+
+  const defaultState = { name: "", note: "" };
+  const [inputs, setInputs] = useState(defaultState);
+
+  const handleSubmit = async (event) => {
+    if (event) {
+      event.preventDefault();
+    }
+
+    try {
+      await axios.post("/api/goals", inputs);
+      console.log("INPUTS", inputs);
+      setInputs(defaultState);
+    } catch (error) {
+      console.log("failed to submit", error);
+    }
   };
 
-  const { inputs, handleInputChange, handleSubmit } = usePrayerForm(submit);
+  const handleInputChange = (event) => {
+    event.persist();
+    setInputs((inputs) => ({
+      ...inputs,
+      [event.target.name]: event.target.value,
+    }));
+  };
 
   return (
-    <StyledContainer>
+    <StyledContainer breakpoint={breakpoint}>
       <h3>Share What You Accomplished!</h3>
       <form onSubmit={handleSubmit}>
         <input
@@ -78,14 +113,12 @@ const PrayerForm = () => {
           placeholder="Name (Optional)"
           onChange={handleInputChange}
           value={inputs.name}
-          required
         />
         <textarea
-          name="accomplishment"
+          name="note"
           placeholder="What did you do? (Optional)"
           onChange={handleInputChange}
-          value={inputs.accomplishment}
-          required
+          value={inputs.note}
         />
         <button type="submit">SUBMIT</button>
       </form>
