@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useForm } from 'react-hook-form'
-
+import usePrayerForm from '../CustomHooks'
 
 const StyledContainer = styled.div` 
     display: flex;
@@ -15,7 +14,7 @@ const StyledContainer = styled.div`
     background: #FFFFFF;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     order-radius: 10px;
-`;
+`
 
 const StyledHeader = styled.h4`
     position: absolute;
@@ -30,7 +29,7 @@ const StyledHeader = styled.h4`
     line-height: 26px;
     text-transform: uppercase;
     color: #544244;
-`;
+`
 
 const NameFieldInput = styled.input`
     position: absolute;
@@ -42,10 +41,9 @@ const NameFieldInput = styled.input`
     border: 1px solid #E5E5E5;
     box-sizing: border-box;
     border-radius: 5px;
-`;
-
-const nameFieldText = styled.p`
-    position: absolute;
+`
+//not sure how to style the placeholder text 
+const NameLabel = styled.p`
     width: 122px;
     height: 21px;
     left: 785px;
@@ -56,7 +54,7 @@ const nameFieldText = styled.p`
     font-size: 16px;
     line-height: 21px;
     color: #C1C1C1;
-`;
+`
 
 const AccomplishmentFieldInput = styled.input`
     position: absolute;
@@ -68,7 +66,8 @@ const AccomplishmentFieldInput = styled.input`
     border: 1px solid #E5E5E5;
     box-sizing: border-box;
     border-radius: 5px;
-`;
+`
+
 
 const Button = styled.button`
     position: absolute;
@@ -78,24 +77,40 @@ const Button = styled.button`
     top: 633px;
     background: #578982;
     border-radius: 5px;
-`;
+`
 
 
 const PrayerForm = () => {
-    const { register, handleSubmit, watch, errors } = useForm();
+    const submit = () => {
+        alert(`Prayer submitted!
+               Name: ${inputs.name} 
+               Accomplishment: ${inputs.accomplishment}`);
+    }
+
+    const { inputs, handleInputChange, handleSubmit } = usePrayerForm(submit);
 
     return (
         <StyledContainer>
             <StyledHeader>
                 Share What You Accomplished
             </StyledHeader>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                {/* register your input into the hook by invoking the "register" function */}
-                <NameFieldInput name="name" defaultValue="Name" ref={register({ required: true })} />
-                {/* include validation with required or other standard HTML validation rules */}
-                <AccomplishmentFieldInput name="accomplishment" defaultValue="What did you do? " ref={register({ required: true })} />
-                {/* errors will return when field validation fails  */}
-                {errors.exampleRequired && <span>This field is required</span>}
+            <form onSubmit={handleSubmit}>
+                <NameFieldInput
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    onChange={handleInputChange}
+                    value={inputs.name}
+                    required
+                />
+                <AccomplishmentFieldInput
+                    type="text"
+                    name="accomplishment"
+                    placeholder="What did you do?"
+                    onChange={handleInputChange}
+                    value={inputs.accomplishment}
+                    required
+                />
                 <Button type="submit" />
             </form>
         </StyledContainer>
