@@ -40,8 +40,7 @@ const MainPageView = () => {
           <Header />
           <WeeklyInstructions />
           <VerseBox />
-          {/* replace the lower one with form when ready */}
-          <VerseBox />
+          <PrayerForm />
           <LinkContainer />
         </>
       )}

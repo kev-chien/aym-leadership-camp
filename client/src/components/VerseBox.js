@@ -15,6 +15,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0px 0px 20px ${theme.colors.shadow};
+  border-radius: 10px;
 
   & div {
     border-radius: 10px;
@@ -39,7 +41,7 @@ const Container = styled.div`
     width: 100%;
     height: auto;
     align-items: center;
-
+    box-shadow: none;
 
     .image {
       background: ${theme.colors.background};

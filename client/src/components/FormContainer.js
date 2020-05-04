@@ -18,8 +18,7 @@ const FormContainer = () => {
   return (
     <StyledDiv>
       <VerseBox />
-      {/* replace the lower one with form when ready */}
-      <VerseBox />
+      <PrayerForm />
     </StyledDiv>
   );
 };
