@@ -12,9 +12,6 @@ module.exports = (app) => {
   //create new goal
   app.post("/api/goals", async (req, res) => {
     const { note, name } = req.body;
-    console.log(
-      'BODY', req.body
-    );
 
     const newGoal = await Goal.create({
       name,
@@ -30,7 +27,10 @@ module.exports = (app) => {
     const { _id } = req.params;
     const { note, name, initials, highlighted } = req.body;
 
-    const goal = await Goal.findOneAndUpdate({ _id }, { note, highlighted, name, initials });
+    const goal = await Goal.findOneAndUpdate(
+      { _id },
+      { note, highlighted, name, initials }
+    );
 
     const allGoals = await Goal.find();
     res.send(allGoals);
