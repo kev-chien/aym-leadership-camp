@@ -47,7 +47,8 @@ const Container = styled.div`
     }
 
     .verse.reference {
-      display: none;
+      font-weight: 500;
+      margin-top: 0;
     }
   `}
 `;
