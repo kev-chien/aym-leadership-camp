@@ -9,7 +9,7 @@ export default {
     white: "#FFF",
   },
   breakpoints: {
-    sm: 400,
+    sm: 500,
     md: 725
   }
 };

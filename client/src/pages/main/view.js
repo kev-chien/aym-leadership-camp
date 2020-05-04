@@ -13,18 +13,16 @@ import {
 const PageContainer = styled.div`
   max-width: 950px;
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 30px 30px;
 `;
 
 const FormContainer = styled.div`
   margin-top: 30px;
-  padding: 0 30px;
   display: flex;
   justify-content: center;
 `;
 
-const MainPageView = ({ breakpoint }) => {
-  console.log(breakpoint);
+const MainPageView = () => {
   return (
     <PageContainer>
       <Header />
