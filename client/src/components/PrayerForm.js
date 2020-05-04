@@ -2,80 +2,57 @@ import React from "react";
 import styled from "styled-components";
 import usePrayerForm from "../CustomHook";
 
-import theme from './theme'
+import theme from "./theme";
 
 const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: flex-column;
-  justify-content: space-between;
   margin-top: 30px;
+  padding: 30px;
   width: 388px;
   height: 392px;
   background: ${theme.colors.white};
   box-shadow: 0px 0px 20px ${theme.colors.shadow};
   border-radius: 10px;
 
+  h3 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: ${theme.colors.burgundy};
+  }
+
   form {
-    position: absolute;
-
-    h3 {
-      width: 329px;
-      height: 26px;
-      left: 764px;
-      top: 341px;
-      font-family: Manrope;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 26px;
-      text-transform: uppercase;
-      color: ${theme.colors.burgundy};
+    input,
+    textarea {
+      margin-top: 10px;
+      width: 100%;
+      background: ${theme.colors.white};
+      border: 1px solid ${theme.colors.background};
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      ::placeholder {
+        color: ${theme.colors.placeholder};
+      }
     }
 
-    input[type="text"] {
-      width: 328px;
+    input {
       height: 41px;
-      left: 765px;
-      top: 377px;
-      background: ${theme.colors.white};
-      border: 1px solid ${theme.colors.background};
-      box-sizing: border - box;
-      border-radius: 5px;
-      ::placeholder {
-        font-family: Manrope;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 21px;
-        color: ${theme.colors.placeholder};
-      }
     }
 
-    input[type="textarea"] {
-      width: 328px;
+    textarea {
       height: 185px;
-      left: 765px;
-      top: 428px;
-      background: ${theme.colors.white};
-      border: 1px solid ${theme.colors.background};
-      box-sizing: border - box;
-      border-radius: 5px;
-      ::placeholder {
-        font-family: Manrope;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 21px;
-        color: ${theme.colors.placeholder};
-      }
+      margin-bottom: 20px;
+      resize: none;
     }
 
     button {
-      width: 28px;
+      width: 100%;
       height: 39px;
-      left: 765px;
-      top: 633px;
-      background: #578982;
+      background: ${theme.colors.fadedGreen};
+      color: ${theme.colors.white};
+      font-size: 14px;
+      font-weight: 700;
       border-radius: 5px;
     }
   }
@@ -93,25 +70,24 @@ const PrayerForm = () => {
 
   return (
     <StyledContainer>
-      <h3>Share What You Accomplished</h3>
+      <h3>Share What You Accomplished!</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
-          placeholder="Name"
+          placeholder="Name (Optional)"
           onChange={handleInputChange}
           value={inputs.name}
           required
         />
-        <input
-          type="textarea"
+        <textarea
           name="accomplishment"
-          placeholder="What did you do?"
+          placeholder="What did you do? (Optional)"
           onChange={handleInputChange}
           value={inputs.accomplishment}
           required
         />
-        <button type="submit" />
+        <button type="submit">SUBMIT</button>
       </form>
     </StyledContainer>
   );
