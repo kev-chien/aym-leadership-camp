@@ -5,34 +5,46 @@ import {
   Header,
   WeeklyInstructions,
   LinkContainer,
+  AccomplishmentTable,
   VerseBox,
   PrayerForm,
-  AccomplishmentTable,
+  FormContainer,
 } from "../../components";
+
+import { useBreakpoint } from "../../providers/BreakpointProvider";
 
 const PageContainer = styled.div`
   max-width: 950px;
   margin: 0 auto;
   padding: 30px 30px;
-`;
-
-const FormContainer = styled.div`
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 100%;
+  align-items: center;
 `;
 
 const MainPageView = () => {
+  const { breakpoint } = useBreakpoint();
+
   return (
-    <PageContainer>
-      <Header />
-      <WeeklyInstructions />
-      <LinkContainer />
-      <FormContainer>
-        <VerseBox style={{ marginRight: "30px" }} />
-        {/* replace the lower one with form when ready */}
-        <VerseBox />
-      </FormContainer>
+    <PageContainer breakpoint={breakpoint}>
+      {(breakpoint === "md" || breakpoint === "lg") && (
+        <>
+          <Header />
+          <WeeklyInstructions />
+          <LinkContainer />
+          <FormContainer />
+        </>
+      )}
+      {breakpoint === "sm" && (
+        <>
+          <Header />
+          <WeeklyInstructions />
+          <VerseBox />
+          {/* replace the lower one with form when ready */}
+          <VerseBox />
+          <LinkContainer />
+        </>
+      )}
     </PageContainer>
   );
 };
