@@ -9,33 +9,82 @@ const StyledContainer = styled.div`
   position: relative;
   top: 10px;
   text-align: center;
-
-  h2 {
-    font-family: Manrope;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 30px;
-    line-height: 40px;
-    color: ${theme.colors.darkGreen};
-  }
 `;
 
 const AccomplishmentTable = ({ accomplishments }) => {
-  const typeCounts = {};
+  const types = {};
 
   accomplishmentTypes.forEach((type) => {
-    typeCounts[type.value] = accomplishments.filter(
+    const filteredAccomplishments = accomplishments.filter(
       (acc) => acc.type === type.value
-    ).length;
+    );
+    types[type.value] = {
+      count: filteredAccomplishments.length,
+      ...type,
+    };
   });
 
   return (
     <StyledContainer>
       <h1>Element-Wide Goal Progress</h1>
-      <h2>{typeCounts.prayer}/500 prayers</h2>
-      <h2>{typeCounts.care}/200 acts of care</h2>
-      <h2>{typeCounts.share}/100 spiritual conversations</h2>
+      {Object.keys(types).map((type) => (
+        <ProgressBar type={types[type]} />
+      ))}
     </StyledContainer>
+  );
+};
+
+const OuterBar = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  margin: 10px auto;
+  width: 100%;
+  max-width: 806px;
+  height: 50px;
+  border-radius: 50px;
+
+  background: ${theme.colors.burgundy};
+  color: white;
+
+  h2 {
+    flex: 1;
+    z-index: 2;
+    text-align: center;
+
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: bold;
+    color: ${theme.colors.fadedPink};
+  }
+`;
+
+const InnerBar = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
+
+  width: ${(props) => `calc(${props.width}% - 20px)`};
+  height: 30px;
+  border-radius: 30px;
+  background: ${theme.colors.fadedGreen};
+`;
+
+const ProgressBar = ({ type: { count, goal, pbDescription } }) => {
+  const minBarWidth = 8;
+  let barWidth = (count / goal) * 100;
+
+  if (barWidth < minBarWidth) barWidth = minBarWidth;
+
+  return (
+    <OuterBar>
+      <h2 style={{ zIndex: 2 }}>
+        {count}/{goal} {pbDescription}
+      </h2>
+      <InnerBar width={barWidth}></InnerBar>
+    </OuterBar>
   );
 };
 
