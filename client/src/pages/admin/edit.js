@@ -10,6 +10,7 @@ const Container = styled.div`
   margin: 50px auto;
   padding: 30px;
   width: 388px;
+  height: 600px;
   background: ${theme.colors.white};
   box-shadow: 0px 0px 20px ${theme.colors.shadow};
   border-radius: 10px;
@@ -138,6 +139,7 @@ const EditView = ({ goal, submitEdit, cancelEdit }) => {
           type="text"
           name="initials"
           placeholder="eg AK"
+          required
           onChange={handleInputChange}
           value={inputs.initials}
         />

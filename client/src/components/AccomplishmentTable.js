@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import moment from "moment";
 
 import accomplishmentTypes from "../constants/accomplishmentTypes";
 
@@ -9,6 +10,10 @@ const StyledContainer = styled.div`
   position: relative;
   top: 10px;
   text-align: center;
+
+  h1 {
+    color: ${theme.colors.burgundy};
+  }
 `;
 
 const AccomplishmentTable = ({ accomplishments }) => {
@@ -20,6 +25,7 @@ const AccomplishmentTable = ({ accomplishments }) => {
     );
     types[type.value] = {
       count: filteredAccomplishments.length,
+      filteredAccomplishments,
       ...type,
     };
   });
@@ -45,7 +51,8 @@ const OuterBar = styled.div`
   height: 50px;
   border-radius: 50px;
 
-  background: ${theme.colors.burgundy};
+  background: ${theme.colors.white};
+  border: 1px solid ${theme.colors.fadedPink};
   color: white;
 
   h2 {
@@ -56,7 +63,7 @@ const OuterBar = styled.div`
     font-size: 24px;
     line-height: 30px;
     font-weight: bold;
-    color: ${theme.colors.fadedPink};
+    color: ${theme.colors.burgundy};
   }
 `;
 
@@ -72,19 +79,93 @@ const InnerBar = styled.div`
   background: ${theme.colors.fadedGreen};
 `;
 
-const ProgressBar = ({ type: { count, goal, pbDescription } }) => {
+const Expand = styled.h1`
+  color: ${theme.colors.burgundy};
+  line-height: 30px;
+  z-index: 2;
+  padding-right: 10px;
+  cursor: pointer;
+`;
+
+const HighlightedGoalsContainer = styled.div`
+  width: 100%;
+  max-width: 795px;
+  margin: 10px auto;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 8px 16px;
+  border-radius: 10px;
+
+  border: 1px solid;
+  background: ${theme.colors.white};
+  border-color: ${theme.colors.fadedPink};
+`;
+
+const Goal = styled.div`
+  width: 33%;
+  min-width: 200px;
+  font-size: 12px;
+  height: auto;
+  padding: 20px;
+  border-right: 1px solid #e9e9e9;
+  color: ${theme.colors.burgundy}
+
+  text-align: left;
+  p span {
+    margin-left: 10px;
+    color: ${theme.colors.fadedPink};
+  }
+
+  &&:nth-child(3) {
+    border: none;
+  }
+`;
+
+const ProgressBar = ({
+  type: { count, goalCount, pbDescription, filteredAccomplishments },
+}) => {
+  const [expanded, setExpanded] = useState(false);
   const minBarWidth = 8;
-  let barWidth = (count / goal) * 100;
+  let barWidth = (count / goalCount) * 100;
 
   if (barWidth < minBarWidth) barWidth = minBarWidth;
 
+  const highlightedGoals = filteredAccomplishments.filter(
+    (goal) => goal.highlighted
+  );
+
+  const canExpand = highlightedGoals.length > 0;
+
   return (
-    <OuterBar>
-      <h2>
-        {count}/{goal} {pbDescription}
-      </h2>
-      <InnerBar width={barWidth}></InnerBar>
-    </OuterBar>
+    <div>
+      <OuterBar
+        onClick={() => {
+          if (canExpand) {
+            setExpanded(!expanded);
+          }
+        }}
+      >
+        <div style={{ width: "30px", visibility: "none" }} />
+        <h2>
+          {count}/{goalCount} {pbDescription}
+        </h2>
+        {canExpand && <Expand>{expanded ? "-" : "+"}</Expand>}
+        <InnerBar width={barWidth}></InnerBar>
+      </OuterBar>
+      {expanded && (
+        <HighlightedGoalsContainer>
+          {highlightedGoals.map((goal, index) => (
+            <Goal key={index} highlighted={goal.highlighted}>
+              <h3>"{goal.note}"</h3>
+              <p>
+                {`- ${goal.initials} `}
+                <span>{moment(goal.date_created).format("MMM D")}</span>
+              </p>
+            </Goal>
+          ))}
+        </HighlightedGoalsContainer>
+      )}
+    </div>
   );
 };
 
