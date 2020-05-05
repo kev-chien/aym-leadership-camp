@@ -27,8 +27,8 @@ const AccomplishmentTable = ({ accomplishments }) => {
   return (
     <StyledContainer>
       <h1>Element-Wide Goal Progress</h1>
-      {Object.keys(types).map((type) => (
-        <ProgressBar type={types[type]} />
+      {Object.keys(types).map((type, index) => (
+        <ProgressBar type={types[type]} key={index} />
       ))}
     </StyledContainer>
   );

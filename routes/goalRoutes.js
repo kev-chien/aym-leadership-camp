@@ -26,11 +26,11 @@ module.exports = (app) => {
   //allow edit of note or highlight by admin
   app.put("/api/goals/:_id", async (req, res) => {
     const { _id } = req.params;
-    const { note, name, initials, highlighted } = req.body;
+    const { note, name, initials, highlighted, type } = req.body;
 
     const goal = await Goal.findOneAndUpdate(
       { _id },
-      { note, highlighted, name, initials }
+      { note, highlighted, name, initials, type }
     );
 
     const allGoals = await Goal.find();
