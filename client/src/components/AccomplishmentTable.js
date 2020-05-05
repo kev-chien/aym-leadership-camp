@@ -31,10 +31,10 @@ const AccomplishmentTable = ({ accomplishments }) => {
 
   return (
     <StyledContainer>
-      <h1>ACCOMPLISHMENTS</h1>
-      <h2>{typeCounts.prayer}/500 prayers!</h2>
-      <h2>{typeCounts.care}/200 acts of care!</h2>
-      <h2>{typeCounts.share}/100 spiritual conversations!</h2>
+      <h1>Element-Wide Goal Progress</h1>
+      <h2>{typeCounts.prayer}/500 prayers</h2>
+      <h2>{typeCounts.care}/200 acts of care</h2>
+      <h2>{typeCounts.share}/100 spiritual conversations</h2>
     </StyledContainer>
   );
 };
