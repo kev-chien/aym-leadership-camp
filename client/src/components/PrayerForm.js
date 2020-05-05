@@ -79,6 +79,10 @@ const StyledContainer = styled.div`
     width: 100%;
     box-shadow: none;
     background: ${theme.colors.background};
+
+    form select {
+      height: auto;
+    }
   `}
 `;
 
