@@ -5,9 +5,10 @@ const goalSchema = new Schema({
   name: String,
   note: String,
   initials: String,
+  type: { type: String, enum: ["prayer", "care", "share"] },
   highlighted: {
     type: Boolean,
-    default: false
+    default: false,
   },
   date_created: {
     type: Date,

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import theme from "./theme";
+import accomplishmentTypes from "../constants/accomplishmentTypes";
 
 import { useBreakpoint } from "../providers/BreakpointProvider";
 
@@ -31,17 +32,22 @@ const StyledContainer = styled.div`
     flex-direction: column;
 
     input,
-    textarea {
+    textarea,
+    select {
       margin-top: 10px;
       width: 100%;
       background: ${theme.colors.white};
       border: 1px solid ${theme.colors.background};
       border-radius: 5px;
-      padding: 10px 20px;
+      padding: 10px 8px;
       font-size: 16px;
       ::placeholder {
         color: ${theme.colors.placeholder};
       }
+    }
+
+    select {
+      height: 35px;
     }
 
     input {
@@ -79,7 +85,7 @@ const StyledContainer = styled.div`
 const PrayerForm = ({ submitAccomplishment }) => {
   const { breakpoint } = useBreakpoint();
 
-  const defaultState = { name: "", note: "" };
+  const defaultState = { name: "", note: "", type: "prayer" };
   const [inputs, setInputs] = useState(defaultState);
 
   const handleSubmit = async (event) => {
@@ -107,6 +113,11 @@ const PrayerForm = ({ submitAccomplishment }) => {
     <StyledContainer breakpoint={breakpoint}>
       <h3>Share What You Accomplished!</h3>
       <form onSubmit={handleSubmit}>
+        <select name="type" value={inputs.type} onChange={handleInputChange}>
+          {accomplishmentTypes.map((type) => (
+            <option value={type.value}>{type.description}</option>
+          ))}
+        </select>
         <input
           type="text"
           name="name"
@@ -116,7 +127,7 @@ const PrayerForm = ({ submitAccomplishment }) => {
         />
         <textarea
           name="note"
-          placeholder="What did you do? (Optional)"
+          placeholder="Any more details? (Optional)"
           onChange={handleInputChange}
           value={inputs.note}
         />

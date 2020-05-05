@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import theme from "./theme";
 
-import TopicalVerses from "../documents/TopicalVerses.pdf";
 import PrayerGuide from "../documents/PrayerGuide.pdf";
 
 import { useBreakpoint } from "../providers/BreakpointProvider";
@@ -29,9 +28,9 @@ const Container = styled.div`
       }
     `}
 
-    ${(props) =>
-      props.breakpoint === "sm" &&
-      `
+  ${(props) =>
+    props.breakpoint === "sm" &&
+    `
         justify-content: center;
         text-align: center;
 
@@ -70,9 +69,6 @@ const LinkContainer = () => {
       <Button className="ghost btn">Resources</Button>
       <Button className="btn" href={PrayerGuide} download="prayer-guide.pdf">
         Prayer Guide
-      </Button>
-      <Button className="btn" href={TopicalVerses} download="topical-verses.pdf">
-        Topical Verses
       </Button>
     </Container>
   );
