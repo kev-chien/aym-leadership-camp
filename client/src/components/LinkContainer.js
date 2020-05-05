@@ -71,7 +71,7 @@ const LinkContainer = () => {
       <Button className="btn" href={PrayerGuide} download="prayer-guide.pdf">
         Prayer Guide
       </Button>
-      <Button className="btn" href={PrayerGuide} download="topical-verses.pdf">
+      <Button className="btn" href={TopicalVerses} download="topical-verses.pdf">
         Topical Verses
       </Button>
     </Container>
