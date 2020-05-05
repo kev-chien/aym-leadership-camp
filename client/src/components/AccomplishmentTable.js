@@ -80,7 +80,7 @@ const ProgressBar = ({ type: { count, goal, pbDescription } }) => {
 
   return (
     <OuterBar>
-      <h2 style={{ zIndex: 2 }}>
+      <h2>
         {count}/{goal} {pbDescription}
       </h2>
       <InnerBar width={barWidth}></InnerBar>

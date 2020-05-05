@@ -49,6 +49,7 @@ const Button = styled.a`
   background: ${theme.colors.fadedPink};
   color: ${theme.colors.white};
   border-radius: 30px;
+  height: 45px;
 
   &&:last-of-type {
     margin-right: 0px;
@@ -58,6 +59,20 @@ const Button = styled.a`
     background: ${theme.colors.background};
     color: ${theme.colors.burgundy};
     font-weight: 700;
+  }
+
+  &&.comingsoon {
+    padding: 0px 20px;
+    text-align: center;
+
+    div {
+      margin: 5px 0 -5px 0;
+      line-height: 20px;
+    }
+
+    small {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -69,6 +84,14 @@ const LinkContainer = () => {
       <Button className="ghost btn">Resources</Button>
       <Button className="btn" href={PrayerGuide} download="prayer-guide.pdf">
         Prayer Guide
+      </Button>
+      <Button className="btn comingsoon">
+        <div>Acts of Care Guide</div>
+        <small>coming soon</small>
+      </Button>
+      <Button className="btn comingsoon">
+        <div>Spiritual Convo Guide</div>
+        <small>coming soon</small>
       </Button>
     </Container>
   );
