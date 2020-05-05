@@ -29,6 +29,11 @@ const AdminPageContainer = () => {
     setEditingId(null);
   };
 
+  const deleteGoal = async (id) => {
+    const res = await axios.delete(`/api/goals/${id}`);
+    setAccomplishments(res.data);
+  };
+
   useEffect(() => {
     fetchAccomplishments();
   }, []);
@@ -40,11 +45,16 @@ const AdminPageContainer = () => {
 
   return authenticated ? (
     editingId ? (
-      <EditingView goal={goalToEdit} cancelEdit={() => setEditingId(null)} submitEdit={submitEdit} />
+      <EditingView
+        goal={goalToEdit}
+        cancelEdit={() => setEditingId(null)}
+        submitEdit={submitEdit}
+      />
     ) : (
       <AdminPageView
         accomplishments={accomplishments}
         editGoal={(id) => setEditingId(id)}
+        deleteGoal={deleteGoal}
       />
     )
   ) : (
