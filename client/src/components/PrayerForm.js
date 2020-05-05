@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import theme from "../theme";
+import theme from "./theme";
 
-import { useBreakpoint } from "../../providers/BreakpointProvider";
+import { useBreakpoint } from "../providers/BreakpointProvider";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -69,6 +69,8 @@ const StyledContainer = styled.div`
     props.breakpoint === "sm" &&
     `
     margin: 0 auto;
+    padding: 0;
+    width: 100%;
     box-shadow: none;
     background: ${theme.colors.background};
   `}
