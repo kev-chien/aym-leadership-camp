@@ -40,9 +40,9 @@ const MainPageView = ({ accomplishments, submitAccomplishment }) => {
         <>
           <Header />
           <WeeklyInstructions />
+          <LinkContainer />
           <VerseBox />
           <PrayerForm submitAccomplishment={submitAccomplishment} />
-          <LinkContainer />
         </>
       )}
     </PageContainer>

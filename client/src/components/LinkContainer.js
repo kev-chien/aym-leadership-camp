@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 import theme from "./theme";
 
+import TopicalVerses from "../documents/TopicalVerses.pdf";
+import PrayerGuide from "../documents/PrayerGuide.pdf";
+
 import { useBreakpoint } from "../providers/BreakpointProvider";
 
 const Container = styled.div`
@@ -13,32 +16,35 @@ const Container = styled.div`
   justify-content: center;
 
   ${(props) =>
-    props.breakpoint === "md" && `
-      justify-content: space-between;
-
-      && .btn {
-        width: 47.5%;
-        margin: 10px 0;
-        text-align: center;
-      }
-    `}
-
-  ${(props) =>
-    props.breakpoint === "sm" &&
+    props.breakpoint === "md" &&
     `
       justify-content: center;
       text-align: center;
 
       && .btn {
-        width: 100%;
+        width: 500px;
         margin: 10px 0;
         border-radius: 5px;
         text-transform: uppercase;
       }
     `}
+
+    ${(props) =>
+      props.breakpoint === "sm" &&
+      `
+        justify-content: center;
+        text-align: center;
+
+        && .btn {
+          width: 100%;
+          margin: 10px 0;
+          border-radius: 5px;
+          text-transform: uppercase;
+        }
+      `}
 `;
 
-const Button = styled.div`
+const Button = styled.a`
   padding: 10px 20px;
   margin-right: 20px;
   background: ${theme.colors.fadedPink};
@@ -62,9 +68,12 @@ const LinkContainer = () => {
   return (
     <Container breakpoint={breakpoint}>
       <Button className="ghost btn">Resources</Button>
-      <Button className="btn">Prayer Guide</Button>
-      <Button className="btn">Acts of Love</Button>
-      <Button className="btn">Spiritual Convo Guide</Button>
+      <Button className="btn" href={PrayerGuide} download="prayer-guide.pdf">
+        Prayer Guide
+      </Button>
+      <Button className="btn" href={PrayerGuide} download="topical-verses.pdf">
+        Topical Verses
+      </Button>
     </Container>
   );
 };

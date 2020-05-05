@@ -18,7 +18,9 @@ const MainPageContainer = () => {
     setAccomplishments(res.data);
   };
 
-  useEffect(() => fetchAccomplishments(), []);
+  useEffect(() => {
+    fetchAccomplishments()
+  }, []);
 
   return (
     <BreakpointProvider>
