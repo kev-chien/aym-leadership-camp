@@ -38,7 +38,7 @@ const WeeklyInstructions = ({ week }) => {
   const { breakpoint } = useBreakpoint();
   return (
     <Container breakpoint={breakpoint}>
-      <h2>Week 2: Prayer</h2>
+      <h2>Week 2: Acts of Care</h2>
       <h3>
         Engage in 2 acts of care <span>throughout the week</span>
       </h3>
