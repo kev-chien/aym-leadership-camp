@@ -116,8 +116,12 @@ const Goal = styled.div`
     color: ${theme.colors.fadedPink};
   }
 
-  &&:nth-child(3) {
+  &&:nth-child(3n) {
     border: none;
+  }
+
+  &&:nth-child(n+4) {
+    border-top: 1px solid #e9e9e9;
   }
 `;
 
