@@ -5,6 +5,7 @@ import theme from "./theme";
 
 import PrayerGuide from "../documents/PrayerGuide.pdf";
 import ActsOfCare from "../documents/ActsofCare.pdf";
+import SpiritualConvos from '../documents/SpiritualConvoGuide.png'
 
 import { useBreakpoint } from "../providers/BreakpointProvider";
 
@@ -89,10 +90,13 @@ const LinkContainer = () => {
       <Button className="btn" href={ActsOfCare} download="acts-of-care-guide.pdf">
         <div>Acts of Care Guide</div>
       </Button>
-      <Button className="btn comingsoon">
+      <Button className="btn" href={SpiritualConvos} download="spiritual-convo-guide.png">
+        <div>Spiritual Convo Guide</div>
+      </Button>
+      {/* <Button className="btn comingsoon">
         <div>Spiritual Convo Guide</div>
         <small>coming soon</small>
-      </Button>
+      </Button> */}
     </Container>
   );
 };
