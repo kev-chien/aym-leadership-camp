@@ -5,7 +5,7 @@ import theme from "./theme";
 
 import PrayerGuide from "../documents/PrayerGuide.pdf";
 import ActsOfCare from "../documents/ActsofCare.pdf";
-import SpiritualConvos from '../documents/SpiritualConvoGuide.png'
+import SpiritualConvos from '../documents/SpiritualConvoGuide.pdf'
 
 import { useBreakpoint } from "../providers/BreakpointProvider";
 
