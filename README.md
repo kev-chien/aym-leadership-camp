@@ -1,4 +1,4 @@
-# May Challenge
-Website to track Element May Challenge
+# AYM ALT 2020 Web App
+Website to track Cohort Scores and allow for submissions!
 
-Live site - https://may-challenge.herokuapp.com/
+Live site - TBA
